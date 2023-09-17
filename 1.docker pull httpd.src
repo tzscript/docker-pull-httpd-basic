@@ -1,0 +1,16 @@
+1.docker pull httpd
+2.docker run -dit --name myrunning-app -p 8080:80 httpd
+3. docker container stop d7ee79437641
+d7ee79437641
+4.docker run -dit --name ab -p 8080:80 -v ${PWD}:/usr/local/apache2/htdocs/ httpd:2.4
+
+cd directory ที่มี dockerfile  
+4.1สร้างไฟล์ dockerfile
+FROM httpd:2.4
+COPY ./public-html/ /usr/local/apache2/htdocs/
+
+#########
+5.docker build -t apache-img:1.0 .
+6.docker run -dit --name ab2 -p 8080:80 apache-img:1.0
+
+
